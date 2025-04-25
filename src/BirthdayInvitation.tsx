@@ -3,13 +3,11 @@ import React from 'react';
 // import Header from './Header';
 
 // Material UI
-import {
-  Box,
-  Typography
-} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import CountdownSection from './components/CountdownSection';
 import DetailsSection from './components/DetailsSection';
 import RockHeader from './components/RockHeader';
+// import CountdownFlipAnimated from './components/CountdownFlipAnimated';
 
 const BirthdayInvitation: React.FC = () => {
   // Tema custom
@@ -32,6 +30,19 @@ const BirthdayInvitation: React.FC = () => {
       {/* Header con componente separato */}
       {/* <Header /> */}
       <RockHeader />
+      {/* <div
+        style={{
+          background: '#111',
+          minHeight: '50vh',
+          margin: '0 auto',
+          width: '50%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <CountdownFlipAnimated />
+      </div> */}
 
       {/* Hero Section with Countdown */}
       <CountdownSection />
