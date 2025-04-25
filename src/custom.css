@@ -1,0 +1,77 @@
+/* custom.css */
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comforter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Smooch&display=swap');
+
+/* Colori personalizzati */
+:root {
+  --purple-900: #4c1d95;
+  --purple-800: #5b21b6;
+  --purple-700: #6d28d9;
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--purple-900), #000);
+  color: white;
+  min-height: 100vh;
+}
+
+.rock-font {
+  font-family: 'Rock Salt', cursive;
+}
+
+.rock-title-font {
+  font-family: 'Comforter', cursive, sans-serif;
+}
+.rock-title-font-2 {
+  font-family: 'Splash', cursive, sans-serif;
+}
+.rock-title-font-3 {
+  font-family: 'Smooch', cursive, sans-serif;
+}
+
+.bg-glam {
+  background-color: rgba(91, 33, 182, 0.5);
+}
+
+.text-glam {
+  color: var(--pink-500);
+}
+
+.btn-glam {
+  background-color: var(--pink-600);
+  border: none;
+}
+
+.btn-glam:hover {
+  background-color: #be185d;
+}
+
+.form-control-dark {
+  background-color: var(--purple-700);
+  border: none;
+  color: white;
+}
+
+.form-control-dark:focus {
+  background-color: var(--purple-700);
+  color: white;
+}
+
+.countdown-box {
+  background-color: rgba(91, 33, 182, 0.7);
+  border-radius: 0.5rem;
+}
+
+.ticket-container {
+  border: 2px solid var(--pink-500);
+  border-radius: 0.5rem;
+}
+
+/* Sovrascritture Bootstrap */
+.card {
+  background-color: rgba(91, 33, 182, 0.5);
+}
