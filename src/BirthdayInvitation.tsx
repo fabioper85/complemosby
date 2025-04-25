@@ -1,40 +1,12 @@
 // src/BirthdayInvitation.tsx
 import React from 'react';
-import Header from './Header';
+// import Header from './Header';
 
 // Material UI
 import {
   Box,
-  Button,
-  Card,
-  CardContent,
-  Container,
-  Typography,
-  TextField,
-  Checkbox,
-  FormControlLabel,
-  Paper,
-  Divider,
-  IconButton,
-  Link,
-  FormGroup,
-  CircularProgress,
-  Stack,
+  Typography
 } from '@mui/material';
-
-// Material Icons
-import {
-  AccessTime as ClockIcon,
-  LocationOn as MapPinIcon,
-  CheckCircle as CheckIcon,
-  Warning as AlertIcon,
-  Instagram as InstagramIcon,
-  Facebook as FacebookIcon,
-  MusicNote as MusicIcon,
-  ConfirmationNumber as TicketIcon,
-  Add as AddIcon,
-  Delete as DeleteIcon,
-} from '@mui/icons-material';
 import CountdownSection from './components/CountdownSection';
 import DetailsSection from './components/DetailsSection';
 import RockHeader from './components/RockHeader';
