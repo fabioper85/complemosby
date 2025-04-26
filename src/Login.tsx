@@ -2,6 +2,7 @@
 import React, {useState, FormEvent} from 'react';
 import {useAuth} from './AuthContext';
 import {Link} from 'react-router-dom';
+import {rockTheme} from './themes/minimal/rockTheme';
 
 // Material UI
 import {
@@ -41,18 +42,11 @@ const Login: React.FC = () => {
     }
   };
 
-  // Tema custom
-  const theme = {
-    primary: '#6d28d9', // purple-700
-    secondary: '#ec4899', // pink-500
-    background: 'linear-gradient(to bottom, #4c1d95, #000)',
-  };
-
   return (
     <Box
       sx={{
         minHeight: '100vh',
-        background: theme.background,
+        background: rockTheme.primary,
         color: 'white',
         display: 'flex',
         alignItems: 'center',
@@ -61,15 +55,14 @@ const Login: React.FC = () => {
     >
       <Container maxWidth='sm'>
         <Box sx={{textAlign: 'center', mb: 4}}>
-          <MusicNoteIcon sx={{fontSize: 60, color: theme.secondary}} />
+          <MusicNoteIcon sx={{fontSize: 60, color: rockTheme.accent}} />
           <Typography
             variant='h3'
             component='h1'
             gutterBottom
             sx={{
-              color: 'white',
+              color: rockTheme.accent,
               fontWeight: 'bold',
-              fontFamily: "'Rock Salt', cursive",
             }}
           >
             Rock Birthday Party
@@ -77,15 +70,15 @@ const Login: React.FC = () => {
         </Box>
 
         <Paper
-          elevation={6}
+          // elevation={12}
           sx={{
             p: 4,
             borderRadius: 2,
-            bgcolor: 'rgba(91, 33, 182, 0.5)',
+            bgcolor: 'transparent',
             backdropFilter: 'blur(10px)',
           }}
         >
-          <Typography variant='h4' component='h2' align='center' gutterBottom sx={{color: 'white', mb: 2}}>
+          <Typography variant='h4' component='h2' align='center' gutterBottom sx={{color: rockTheme.secondary, mb: 2}}>
             Accedi
           </Typography>
 
@@ -119,7 +112,7 @@ const Login: React.FC = () => {
               sx={{
                 mb: 2,
                 '& .MuiOutlinedInput-root': {
-                  color: 'white',
+                  color: rockTheme.secondary,
                   '& fieldset': {
                     borderColor: 'rgba(255, 255, 255, 0.3)',
                   },
@@ -127,7 +120,7 @@ const Login: React.FC = () => {
                     borderColor: 'rgba(255, 255, 255, 0.5)',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: theme.secondary,
+                    borderColor: rockTheme.secondary,
                   },
                 },
                 '& .MuiInputLabel-root': {
@@ -163,7 +156,7 @@ const Login: React.FC = () => {
                     borderColor: 'rgba(255, 255, 255, 0.5)',
                   },
                   '&.Mui-focused fieldset': {
-                    borderColor: theme.secondary,
+                    borderColor: rockTheme.secondary,
                   },
                 },
                 '& .MuiInputLabel-root': {
@@ -181,9 +174,11 @@ const Login: React.FC = () => {
               sx={{
                 mt: 2,
                 py: 1.5,
-                bgcolor: theme.secondary,
+                bgcolor: rockTheme.secondary,
+                color: rockTheme.primary,
                 '&:hover': {
-                  bgcolor: '#d61f69',
+                  bgcolor: rockTheme.accent,
+                  color: rockTheme.secondary,
                 },
                 fontSize: '1.1rem',
                 fontWeight: 'bold',
@@ -193,15 +188,21 @@ const Login: React.FC = () => {
             </Button>
 
             <Box sx={{mt: 3, textAlign: 'center'}}>
-              <Typography variant='body2'>
+              <Typography
+                variant='body2'
+                sx={{
+                  color: rockTheme.secondary,
+                  textDecoration: 'none',
+                }}
+              >
                 Non hai ancora un account?{' '}
                 <MuiLink
                   component={Link}
                   to='/register'
                   sx={{
-                    color: theme.secondary,
+                    color: rockTheme.accent,
                     '&:hover': {
-                      color: '#f472b6',
+                      textDecoration: 'underline',
                     },
                     textDecoration: 'none',
                   }}

@@ -4,6 +4,7 @@ import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import {doc, setDoc} from 'firebase/firestore';
 import {auth, db} from './firebase';
 import {Link} from 'react-router-dom';
+import {rockTheme as theme} from './themes/minimal/rockTheme';
 
 // Material UI
 import {
@@ -91,19 +92,11 @@ const Registration: React.FC = () => {
     }
   };
 
-  // Tema custom
-  const theme = {
-    primary: '#6d28d9', // purple-700
-    secondary: '#ec4899', // pink-500
-    background: 'linear-gradient(to bottom, #4c1d95, #000)',
-    success: '#10b981', // green-500
-  };
-
   return (
     <Box
       sx={{
         minHeight: '100vh',
-        background: theme.background,
+        background: theme.primary,
         color: 'white',
         display: 'flex',
         alignItems: 'center',
@@ -112,20 +105,19 @@ const Registration: React.FC = () => {
     >
       <Container maxWidth='sm'>
         <Box sx={{textAlign: 'center', mb: 4}}>
-          <MusicNoteIcon sx={{fontSize: 60, color: theme.secondary}} />
+          <MusicNoteIcon sx={{fontSize: 60, color: theme.accent}} />
           <Typography
             variant='h3'
             component='h1'
             gutterBottom
             sx={{
-              color: 'white',
+              color: theme.accent,
               fontWeight: 'bold',
-              fontFamily: "'Rock Salt', cursive",
             }}
           >
             Rock Birthday Party
           </Typography>
-          <Typography variant='h6' sx={{color: 'rgba(255,255,255,0.8)'}}>
+          <Typography variant='h6' sx={{color: theme.secondary}}>
             Registrati per accedere all'evento
           </Typography>
         </Box>
@@ -142,7 +134,7 @@ const Registration: React.FC = () => {
             }}
           >
             <Box sx={{display: 'flex', justifyContent: 'center', mb: 2}}>
-              <CheckIcon sx={{fontSize: 48, color: theme.success}} />
+              <CheckIcon sx={{fontSize: 48, color: theme.accent}} />
             </Box>
             <Typography variant='h5' align='center' sx={{mb: 2, fontWeight: 'bold'}}>
               Registrazione completata!
@@ -170,11 +162,11 @@ const Registration: React.FC = () => {
           </Paper>
         ) : (
           <Paper
-            elevation={6}
+            // elevation={6}
             sx={{
               p: 4,
               borderRadius: 2,
-              bgcolor: 'rgba(91, 33, 182, 0.5)',
+              bgcolor: 'transparent',
               backdropFilter: 'blur(10px)',
             }}
           >
@@ -348,8 +340,10 @@ const Registration: React.FC = () => {
                   mt: 2,
                   py: 1.5,
                   bgcolor: theme.secondary,
+                  color: theme.primary,
                   '&:hover': {
-                    bgcolor: '#d61f69',
+                    bgcolor: theme.accent,
+                    color: theme.secondary
                   },
                   fontSize: '1.1rem',
                   fontWeight: 'bold',
@@ -359,15 +353,15 @@ const Registration: React.FC = () => {
               </Button>
 
               <Box sx={{mt: 3, textAlign: 'center'}}>
-                <Typography variant='body2'>
+                <Typography variant='body2' sx={{ color: theme.secondary}}>
                   Hai già un account?{' '}
                   <MuiLink
                     component={Link}
                     to='/login'
                     sx={{
-                      color: theme.secondary,
+                      color: theme.accent,
                       '&:hover': {
-                        color: '#f472b6',
+                        textDecoration: 'underline',
                       },
                       textDecoration: 'none',
                     }}
