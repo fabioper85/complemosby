@@ -96,6 +96,8 @@ const CountdownContent: React.FC = () => {
             sx={{
               color: rockTheme.secondary,
               mb: 4,
+              fontSize: '1.3rem',
+              fontWeight: '300',
               maxWidth: '90%',
             }}
           >
@@ -107,7 +109,7 @@ const CountdownContent: React.FC = () => {
             <Button
               variant='contained'
               sx={{
-                bgcolor: rockTheme.accent,
+                background: rockTheme.primary,
                 color: rockTheme.secondary,
                 py: 1.5,
                 px: 3,
@@ -115,7 +117,9 @@ const CountdownContent: React.FC = () => {
                 textTransform: 'none', // M3 doesn't use all caps for buttons
                 fontWeight: 500,
                 '&:hover': {
-                  bgcolor: '#cc3030', // Slightly darker accent color for hover
+                  // borderColor: rockTheme.accent,
+                  background: `linear-gradient(90deg, ${rockTheme.primary}, ${rockTheme.accent})`,
+                  // color: rockTheme.secondary
                 },
                 boxShadow: '0 2px 4px rgba(0,0,0,0.2)', // Light shadow for elevation
                 fontSize: '1rem',
@@ -127,17 +131,17 @@ const CountdownContent: React.FC = () => {
             <Button
               variant='outlined'
               sx={{
-                color: rockTheme.secondary,
-                borderColor: rockTheme.secondary,
+                color: rockTheme.accent,
+                borderColor: rockTheme.accent,
                 py: 1.5,
                 px: 3,
                 // borderRadius: '100px',
                 textTransform: 'none',
                 fontWeight: 500,
                 '&:hover': {
-                  borderColor: rockTheme.secondary,
-                  bgcolor: rockTheme.secondary,
-                  color: rockTheme.primary
+                  borderColor: rockTheme.accent,
+                  background: rockTheme.accent,
+                  color: rockTheme.secondary
                 },
                 fontSize: '1rem',
               }}
