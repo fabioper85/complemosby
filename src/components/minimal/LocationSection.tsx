@@ -80,8 +80,9 @@ const MinimalLocationSection: React.FC = () => {
                   color: rockTheme.secondary,
                   borderColor: rockTheme.secondary,
                   '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.1)',
+                    bgcolor: rockTheme.secondary,
                     borderColor: rockTheme.secondary,
+                    color: rockTheme.primary,
                   },
                   py: 1.5,
                 }}
@@ -99,8 +100,9 @@ const MinimalLocationSection: React.FC = () => {
                   color: rockTheme.secondary,
                   borderColor: rockTheme.secondary,
                   '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.1)',
+                    bgcolor: rockTheme.secondary,
                     borderColor: rockTheme.secondary,
+                    color: rockTheme.primary,
                   },
                   py: 1.5,
                 }}
@@ -127,10 +129,10 @@ const MinimalLocationSection: React.FC = () => {
               <Box sx={{position: 'relative', zIndex: 1, textAlign: 'center'}}>
                 <MapPinIcon sx={{fontSize: 60, color: rockTheme.accent, mb: 2}} />
                 <Typography variant='body1' sx={{maxWidth: 300}}>
-                  Via Esempio 123, Villastellone
+                  Via Poirino, 2, 10029 Villastellone TO
                 </Typography>
                 <Button
-                  href='https://maps.app.goo.gl/123'
+                  href='https://www.google.it/maps/place/La+Vaca+Straca/@44.9163186,7.7821076,17z/data=!3m1!4b1!4m6!3m5!1s0x478809676b6073cd:0xa251229bbebddfe0!8m2!3d44.9163148!4d7.7846825!16s%2Fg%2F11gmgxwr0x?hl=it&entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D'
                   target='_blank'
                   rel='noopener noreferrer'
                   variant='text'
