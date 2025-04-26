@@ -2,8 +2,8 @@
 import React from 'react';
 import {Paper, Box, Typography, IconButton, Stack, TextField, Button} from '@mui/material';
 import {ConfirmationNumber as TicketIcon, Delete as DeleteIcon, Add as AddIcon} from '@mui/icons-material';
-import {rockTheme} from '../themes/rockTheme';
-import {Guest} from '../types';
+import {rockTheme} from '../../themes/base/rockTheme';
+import {Guest} from '../../const/types';
 
 interface GuestFormProps {
   guests: Guest[];

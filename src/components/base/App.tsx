@@ -2,25 +2,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import BirthdayInvitation from './BirthdayInvitation';
-import Admin from './Admin';
-import Login from './Login';
-import Registration from './Registration';
-import { AuthProvider, useAuth } from './AuthContext';
+import Admin from '../../Admin';
+import Login from '../../Login';
+import Registration from '../../Registration';
+import { AuthProvider, useAuth } from '../../AuthContext';
 
 // Componente per proteggere le route di base (richiede autenticazione)
-interface ProtectedRouteProps {
-  element: React.ReactNode;
-}
+// interface ProtectedRouteProps {
+//   element: React.ReactNode;
+// }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
-  const { currentUser, loading } = useAuth();
+// const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ element }) => {
+//   const { currentUser, loading } = useAuth();
   
-  if (loading) {
-    return <div>Caricamento...</div>;
-  }
+//   if (loading) {
+//     return <div>Caricamento...</div>;
+//   }
   
-  return currentUser ? <>{element}</> : <Navigate to="/login" replace />;
-};
+//   return currentUser ? <>{element}</> : <Navigate to="/login" replace />;
+// };
 
 // Componente per proteggere le route admin (richiede ruolo admin)
 interface AdminRouteProps {

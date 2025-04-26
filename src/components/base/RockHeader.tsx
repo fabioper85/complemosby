@@ -2,7 +2,7 @@
 import React from 'react';
 import {AppBar, Toolbar, Typography, Box, Button, IconButton} from '@mui/material';
 import {MusicNote as MusicIcon, Menu as MenuIcon} from '@mui/icons-material';
-import {rockTheme, scrollToSection} from '../themes/rockTheme';
+import {rockTheme, scrollToSection} from '../../themes/base/rockTheme';
 
 const RockHeader: React.FC = () => {
   return (

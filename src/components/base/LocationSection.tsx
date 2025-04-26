@@ -2,7 +2,7 @@
 import React from 'react';
 import {Box, Typography, Paper, Stack, Button} from '@mui/material';
 import {LocationOn as MapPinIcon, Instagram as InstagramIcon, Facebook as FacebookIcon} from '@mui/icons-material';
-import {rockTheme} from '../themes/rockTheme';
+import {rockTheme} from '../../themes/base/rockTheme';
 import SectionTitle from './SectionTitle';
 
 const LocationSection: React.FC = () => {

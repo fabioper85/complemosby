@@ -4,9 +4,9 @@ import React from 'react';
 
 // Material UI
 import {Box, Typography} from '@mui/material';
-import CountdownSection from './components/CountdownSection';
-import DetailsSection from './components/DetailsSection';
-import RockHeader from './components/RockHeader';
+import CountdownSection from './CountdownSection';
+import DetailsSection from './DetailsSection';
+import RockHeader from './RockHeader';
 // import CountdownFlipAnimated from './components/CountdownFlipAnimated';
 
 const BirthdayInvitation: React.FC = () => {

@@ -2,7 +2,7 @@
 import React from 'react';
 import {Box, Typography, Paper, Container} from '@mui/material';
 import {AccessTime as ClockIcon, LocationOn as MapPinIcon, MusicNote as MusicIcon} from '@mui/icons-material';
-import {rockTheme} from '../themes/rockTheme';
+import {rockTheme} from '../../themes/base/rockTheme';
 import SectionTitle from './SectionTitle';
 
 const DetailsSection: React.FC = () => {

@@ -2,8 +2,8 @@
 import React from 'react';
 import {Box, Typography, FormGroup, FormControlLabel, Checkbox, TextField} from '@mui/material';
 import {Warning as AlertIcon} from '@mui/icons-material';
-import {rockTheme} from '../themes/rockTheme';
-import {Allergies} from '../types';
+import {rockTheme} from '../../themes/base/rockTheme';
+import {Allergies} from '../../const/types';
 
 interface AllergyFormProps {
   allergies: Allergies;

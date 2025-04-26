@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {LogOut, UserCog} from 'lucide-react';
-import {useAuth} from './AuthContext';
+import {useAuth} from '../../AuthContext';
 
 const Header: React.FC = () => {
   const {currentUser, isAdmin, logout} = useAuth();

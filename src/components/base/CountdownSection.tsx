@@ -1,8 +1,8 @@
 // src/components/CountdownSection.tsx
 import React, {useState, useEffect} from 'react';
 import {Box, Container, Typography, Divider, Paper} from '@mui/material';
-import {rockTheme} from '../themes/rockTheme';
-import {CountdownState} from '../types';
+import {rockTheme} from '../../themes/base/rockTheme';
+import {CountdownState} from '../../const/types';
 
 const CountdownSection: React.FC = () => {
   // Countdown

@@ -1,7 +1,7 @@
 // src/components/SectionTitle.tsx
 import React from 'react';
 import {Typography} from '@mui/material';
-import {rockTheme} from '../themes/rockTheme';
+import {rockTheme} from '../../themes/base/rockTheme';
 
 interface SectionTitleProps {
   title: string;

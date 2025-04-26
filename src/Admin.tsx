@@ -4,7 +4,7 @@ import {auth, db} from './firebase';
 import {signInWithEmailAndPassword, signOut, User} from 'firebase/auth';
 import {collection, getDocs, query, orderBy, Timestamp} from 'firebase/firestore';
 import {User as UserIcon, LogOut, UserCheck, Lock} from 'lucide-react';
-import {Presenza} from './types';
+import {Presenza} from './const/types';
 
 const Admin: React.FC = () => {
   const [email, setEmail] = useState<string>('');
