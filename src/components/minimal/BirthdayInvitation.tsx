@@ -3,7 +3,6 @@ import React from 'react';
 import {Box, Typography, CssBaseline} from '@mui/material';
 import {rockTheme} from '../../themes/minimal/rockTheme';
 import RockHeader from '../minimal/RockHeader';
-// import CountdownSection from '../minimal/CountdownSection';
 import DetailSection from '../minimal/DetailsSection';
 import LocationSection from '../minimal/LocationSection';
 import CountdownContainer from './m3-countdown/CountdownContainer';
@@ -17,7 +16,6 @@ const BirthdayInvitation: React.FC = () => {
         <RockHeader />
 
         {/* Hero with Countdown */}
-        {/* <CountdownSection /> */}
         <CountdownContainer />
 
         {/* Details Section */}
