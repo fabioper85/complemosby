@@ -1,8 +1,8 @@
 // src/AuthContext.tsx
 import React, {createContext, useContext, useState, useEffect, ReactNode} from 'react';
-import {User, signInWithEmailAndPassword, signOut as firebaseSignOut, onAuthStateChanged} from 'firebase/auth';
-import {auth, db} from './firebase';
-import {doc, getDoc} from 'firebase/firestore';
+import {User, signInWithEmailAndPassword, signOut as firebaseSignOut, signInWithPopup, onAuthStateChanged} from 'firebase/auth';
+import {auth, db, googleProvider, db_users_table_name, FIREBASE_DB_USERS_ROLES} from './firebase';
+import {doc, getDoc, setDoc} from 'firebase/firestore';
 
 interface AuthContextProps {
   currentUser: User | null;
@@ -10,6 +10,7 @@ interface AuthContextProps {
   loading: boolean;
   error: string;
   login: (email: string, password: string) => Promise<void>;
+  loginWithGoogle: () => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -38,9 +39,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     if (!user) return false;
 
     try {
-      const userRef = doc(db, 'users', user.uid);
+      const userRef = doc(db, db_users_table_name, user.uid);
       const userDoc = await getDoc(userRef);
-      return userDoc.exists() && userDoc.data()?.role === 'ADMIN';
+      return userDoc.exists() && userDoc.data()?.role === FIREBASE_DB_USERS_ROLES.ADMIN;
     } catch (err) {
       console.error('Errore nella verifica dello stato admin:', err);
       return false;
@@ -56,6 +57,34 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
       setIsAdmin(adminStatus);
     } catch (err) {
       setError('Credenziali non valide. Riprova.');
+      throw err;
+    }
+  };
+  
+  const loginWithGoogle = async () => {
+    setError('');
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      
+      // Verifica se l'utente esiste già nel database
+      const userDoc = await getDoc(doc(db, db_users_table_name, user.uid));
+      
+      // Se l'utente non esiste, crea un nuovo documento
+      if (!userDoc.exists()) {
+        await setDoc(doc(db, db_users_table_name, user.uid), {
+          displayName: user.displayName,
+          email: user.email,
+          role: 'USER', // Default role
+          createdAt: new Date(),
+          photoURL: user.photoURL
+        });
+      }
+      
+      const adminStatus = await checkAdminStatus(user);
+      setIsAdmin(adminStatus);
+    } catch (err) {
+      setError('Errore durante l\'accesso con Google. Riprova.');
       throw err;
     }
   };
@@ -96,6 +125,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     loading,
     error,
     login,
+    loginWithGoogle,
     logout,
   };
 

@@ -1,7 +1,7 @@
 // src/firebase.ts
 import {initializeApp} from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
-import {getAuth} from 'firebase/auth';
+import {getAuth, GoogleAuthProvider} from 'firebase/auth';
 
 // Inserisci qui le tue credenziali Firebase
 const firebaseConfig = {
@@ -19,4 +19,12 @@ const app = initializeApp(firebaseConfig);
 // Inizializza servizi
 export const db = getFirestore(app);
 export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
 export default app;
+
+export const db_users_table_name = 'users';
+export enum FIREBASE_DB_USERS_ROLES {
+  USER = 'USER',
+  ADMIN = 'ADMIN'
+}
+export const FIREBASE_DB_USERS_DEFAULT_ROLE = FIREBASE_DB_USERS_ROLES.USER;

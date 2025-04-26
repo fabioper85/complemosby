@@ -2,7 +2,7 @@
 import React, {useState, FormEvent} from 'react';
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 import {doc, setDoc} from 'firebase/firestore';
-import {auth, db} from './firebase';
+import {auth, db, db_users_table_name, FIREBASE_DB_USERS_DEFAULT_ROLE, FIREBASE_DB_USERS_ROLES} from './firebase';
 import {Link} from 'react-router-dom';
 import {rockTheme as theme} from './themes/minimal/rockTheme';
 
@@ -69,10 +69,10 @@ const Registration: React.FC = () => {
       });
 
       // Salva i dati utente in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
+      await setDoc(doc(db, db_users_table_name, user.uid), {
         displayName: name,
         email: email,
-        role: 'user', // Default role
+        role: FIREBASE_DB_USERS_DEFAULT_ROLE, // Default role
         createdAt: new Date(),
       });
 

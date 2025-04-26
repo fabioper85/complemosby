@@ -16,16 +16,23 @@ import {
   Alert,
   CircularProgress,
   Link as MuiLink,
+  Divider,
 } from '@mui/material';
 
 // Material Icons
-import {Email as EmailIcon, Lock as LockIcon, MusicNote as MusicNoteIcon} from '@mui/icons-material';
+import {
+  Email as EmailIcon,
+  Lock as LockIcon,
+  MusicNote as MusicNoteIcon,
+  Google as GoogleIcon,
+} from '@mui/icons-material';
 
 const Login: React.FC = () => {
-  const {login, error: authError} = useAuth();
+  const {login, loginWithGoogle, error: authError} = useAuth();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
   const handleLogin = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
@@ -39,6 +46,19 @@ const Login: React.FC = () => {
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async (): Promise<void> => {
+    setGoogleLoading(true);
+    setError('');
+
+    try {
+      await loginWithGoogle();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setGoogleLoading(false);
     }
   };
 
@@ -70,7 +90,6 @@ const Login: React.FC = () => {
         </Box>
 
         <Paper
-          // elevation={12}
           sx={{
             p: 4,
             borderRadius: 2,
@@ -91,6 +110,47 @@ const Login: React.FC = () => {
               {error || authError}
             </Alert>
           )}
+
+          {/* Pulsante di login con Google */}
+          <Button
+            fullWidth
+            variant='outlined'
+            size='large'
+            startIcon={googleLoading ? null : <GoogleIcon />}
+            onClick={handleGoogleLogin}
+            disabled={googleLoading}
+            sx={{
+              mb: 3,
+              py: 1.5,
+              color: rockTheme.secondary,
+              borderColor: rockTheme.secondary,
+              '&:hover': {
+                bgcolor: rockTheme.accent,
+                borderColor: rockTheme.accent,
+                color: rockTheme.secondary,
+              },
+              fontSize: '1rem',
+            }}
+          >
+            {googleLoading ? <CircularProgress size={24} color='inherit' /> : 'Accedi con Google'}
+          </Button>
+
+          <Divider sx={{my: 2, bgcolor: 'rgba(255,255,255,0.2)', position: 'relative'}}>
+            <Typography
+              variant='body2'
+              sx={{
+                position: 'absolute',
+                top: -10,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                bgcolor: 'transparent',
+                px: 2,
+                color: rockTheme.secondary,
+              }}
+            >
+              oppure
+            </Typography>
+          </Divider>
 
           <form onSubmit={handleLogin}>
             <TextField
