@@ -19,7 +19,7 @@ const CountdownTimer: React.FC = () => {
 
   useEffect(() => {
     const calculateCountdown = (): void => {
-      const eventDate = new Date('December 31, 2025 19:00:00');
+      const eventDate = new Date(2025, 11, 31, 19, 0, 0);
       const now = new Date();
       const difference = eventDate.getTime() - now.getTime();
 
@@ -56,7 +56,7 @@ const CountdownTimer: React.FC = () => {
         position: 'relative',
         transition: 'transform 0.3s ease', // Smooth transition for hover effect
         '&:hover': {
-          transform: 'translateY(-4px)', // Subtle lift effect on hover
+          // transform: 'translateY(-4px)', // Subtle lift effect on hover
         },
       }}
     >
